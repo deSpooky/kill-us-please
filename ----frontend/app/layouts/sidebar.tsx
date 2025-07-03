@@ -1,6 +1,7 @@
 import { Form, Link, Outlet } from "react-router";
 import { casesApi } from "../api/cases";
 import type { Route } from "./+types/sidebar";
+import CaseCard from "../components/case-card";
 
 export async function loader() {
     const cases = await casesApi.getAll();
@@ -41,9 +42,7 @@ export default function SidebarLayout({
                     <ul>
                         {cases.map((caseRecord) => (
                             <li key={caseRecord.id}>
-                                <Link to={`cases/${caseRecord.id}`}>
-                                    <>{caseRecord.title}</>
-                                </Link>
+                                <CaseCard {...caseRecord} />
                             </li>
                         ))}
                     </ul>
