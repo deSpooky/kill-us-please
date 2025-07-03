@@ -9,9 +9,9 @@ interface SessionData {
 
 router.post('/register', async (req: Request, res: Response): Promise<void> => {
   try {
-    const { nickname, email, password, creator_description } = req.body
+    const { email, password, creator_description, first_name, last_name, avatar } = req.body
 
-    if (!nickname || !email || !password) {
+    if (!email || !password) {
       res.status(400).json({ error: 'все поля обязательны' })
       return
     }
@@ -30,12 +30,14 @@ router.post('/register', async (req: Request, res: Response): Promise<void> => {
     const creator = await db
       .insertInto('creators')
       .values({
-        nickname,
+        first_name,
+        last_name,
         email,
         password,
         creator_description,
+        avatar
       })
-      .returning(['id', 'nickname', 'email'])
+      .returning(['id', 'first_name', 'last_name', 'email'])
       .executeTakeFirst()
 
     res.status(201).json({ message: 'регистрация успешна', creator })
@@ -79,7 +81,8 @@ router.post('/login', async (req: Request, res: Response): Promise<void> => {
       user: {
         id: user.id,
         email: user.email,
-        nickname: user.nickname,
+        first_name: user.first_name,
+        last_name: user.last_name,
         creator_description: user.creator_description,
       },
     })
@@ -110,7 +113,7 @@ router.get('/me', async (req, res) => {
 
   const user = await db
     .selectFrom('creators')
-    .select(['id', 'nickname', 'email', 'creator_description'])
+    .select(['id', 'first_name', 'last_name', 'email', 'creator_description'])
     .where('id', '=', session.userId)
     .executeTakeFirst()
 
