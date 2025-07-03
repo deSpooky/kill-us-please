@@ -1,0 +1,20 @@
+.header_profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header_profile__image {
+    border-radius: 50%;
+}
+
+.header_profile__bar {
+    width: 80px;
+    height: 20px;
+    background: white;
+    border-radius: 20px;
+}
+
+.header_profile__nickname {
+    
+}
