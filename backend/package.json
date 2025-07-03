@@ -2,9 +2,7 @@
     "name": "backend",
     "version": "1.0.0",
     "scripts": {
-        "dev": "nodemon --watch './**/*.ts' --exec ts-node app.ts",
-        "migrate": "ts-node db/migrate.ts",
-        "seed": "ts-node db/seed.ts"
+        "dev": "nodemon --watch './**/*.ts' --exec ts-node app.ts"
     },
     "keywords": [],
     "author": "",
