@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Регистрация</title>
+  <link rel="stylesheet" href="registration-style.css"/>
+</head>
+<body>
+  <div class="container">
+    <div class="tabs">
+      <h3 id="login"><a href="../login/login.html">Войти</a></h3>
+      <h3 id="register"><a href="./registration.html"></a>Зарегистрироваться</h3>
+    </div>
+
+    <form>
+      <div class="input-group">
+        <input type="email" id="email" name="email" placeholder="Ваш E-mail" required>
+      </div>
+
+      <div class="input-group">
+        <input type="password" id="password" name="password" placeholder="Пароль" required>
+        <span class="toggle-password"></span>
+      </div>
+
+      <div class="input-group">
+        <input type="password" id="password-check" name="password-check" placeholder="Подтверждение пароля" required>
+        <span class="toggle-password" onclick="togglePassword('password-check')"></span>
+      </div>
+
+      <div class="checkbox-block">
+        <input type="checkbox" id="checkbox" name="checkbox" required>
+        <label for="checkbox">Согласен с Правилами и Политикой конфиденциальности</label>
+      </div>
+
+      <input type="submit" id="button" value="Продолжить">
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Roboto Flex', sans-serif;
+  background: #fff;
+}
+
+.page {
+  display: flex;
+  padding: 40px;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.profile-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  width: 300px;
+  text-align: center;
+}
+
+.profile-card .avatar {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.profile-card h2 {
+  font-size: 20px;
+}
+
+.profile-card .section {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.profile-card .section h4 {
+  margin: 0 0 5px 0;
+  color: gray;
+  font-weight: normal;
+  font-size: 14px;
+}
+
+.resume-button {
+  background: black;
+  color: white;
+  padding: 10px 20px;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-right: 210px;
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  flex: 1;
+}
+
+.project-card {
+  background: white;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.project-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.project-card h3 {
+  margin: 10px 0 8px;
+  font-size: 16px;
+}
+
+.stats {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 14px;
+}
+
+.icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
