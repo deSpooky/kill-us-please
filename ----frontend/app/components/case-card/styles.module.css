@@ -1,3 +1,140 @@
-.card-wrapper {
-    display: flex;
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+
+body {
+  font-family: 'Roboto Flex', sans-serif;
+  margin: 0;
+  background: white;
 }
+
+header {
+  background: #D9D9D9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 20px;
+  background-image: url('./tihub\ main\ кнопка.svg');
+}
+
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile img {
+  border-radius: 50%;
+}
+
+.profile-bar {
+  width: 80px;
+  height: 20px;
+  background: white;
+  border-radius: 20px;
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  padding: 20px 40px;
+  flex-wrap: wrap;
+}
+
+.filters button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 12px;
+  background: #D9D9D9;
+  color: #706F70;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.arrow {
+  font-weight: bold;
+  font-size: 20px;
+  padding: 5px 15px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  padding: 20px 40px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.preview {
+  background: #D9D9D9;
+  height: 260px;
+  border-radius: 12px;
+}
+
+.card-footer {
+  padding: 10px;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 12px;
+  background: #303030;
+  margin-right: 10px;
+}
+
+.info .name {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.info .role {
+  font-size: 12px;
+  color: gray;
+}
+
+.project-name {
+  font-weight: bold;
+  font-size: 15px;
+  margin: 8px 0;
+}
+
+.stats {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
