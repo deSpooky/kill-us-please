@@ -1,0 +1,67 @@
+.card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.preview {
+    background: #D9D9D9;
+    height: 260px;
+    border-radius: 12px;
+}
+
+.card-content {
+    padding: 10px;
+}
+
+.author {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 12px;
+    background: #303030;
+    margin-right: 10px;
+}
+
+.info__name {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.info__role {
+    font-size: 12px;
+    color: gray;
+}
+
+.project-name {
+    font-weight: bold;
+    font-size: 15px;
+    margin: 8px 0;
+}
+
+.stats {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+}
+
+.icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.card__footer {
+    display: flex;
+    justify-content: space-between;
+}
