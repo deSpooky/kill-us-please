@@ -21,13 +21,10 @@
 .link {
     font-weight: 500;
     font-size: 35px;
-}
-
-.link_login {
     color: #706F70;
 }
 
-.link_signup {
+.active {
     color: #AB00EA;
 }
 
