@@ -128,7 +128,7 @@ router.post(
     req: Request & { file?: Express.Multer.File },
     res: Response
   ): Promise<void> => {
-    const { title, case_description, creator_id, likes, views } = req.body
+    const { title, case_description, creator_id, likes, views, tag} = req.body
     const file = req.file
 
     if (!title) {
@@ -148,6 +148,7 @@ router.post(
           creator_id: Number(creator_id),
           likes: Number(likes) || 0,
           views: Number(views) || 0,
+          tag,
         })
         .returningAll()
         .executeTakeFirst()

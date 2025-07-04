@@ -24,6 +24,7 @@ async function migrate() {
     .addColumn('creator_id', 'integer', (col) => col.references('creators.id').onDelete('set null'))
     .addColumn('likes', 'integer')
     .addColumn('views', 'integer')
+    .addColumn('tag', 'text')
     .addColumn('created_at', 'text', (col) => col.notNull().defaultTo(sql`CURRENT_TIMESTAMP`))
     .execute()
 

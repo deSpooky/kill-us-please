@@ -19,6 +19,7 @@ export interface DB {
     creator_id: number
     likes: number
     views: number
+    tag: string
     created_at: Generated<string>
   }
 }

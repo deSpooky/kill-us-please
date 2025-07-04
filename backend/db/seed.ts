@@ -1,4 +1,4 @@
-import { seed, rand, randJobTitle, randProductName, randProductDescription, randFirstName, randLastName, randAvatar  } from '@ngneat/falso';
+import { seed, rand, randJobTitle, randProductName, randProductDescription, randFirstName, randLastName, randAvatar, randNumber   } from '@ngneat/falso';
 import { db } from './database'
 
 async function seedCreators() {
@@ -18,16 +18,27 @@ async function seedCases() {
     const creators = await db.selectFrom('creators').select(['id']).execute()
     const creatorIds = creators.map(({ id }) => id)
 
+    const tags = [
+        "Иллюстрация",
+        "Движение",
+        "Архитектура",
+        "UX/UI",
+        "Брендинг",
+        "Графический дизайн",
+        "Фотография"
+    ]
+
     for (let count = 0; count < 100; count++) {
         const creatorId = rand(creatorIds) 
-
+        const randomTags = rand(tags)
         await db.insertInto('cases').values({
             title: randProductName(),
             source_file_url: null,
             creator_id: creatorId,
             case_description: randProductDescription(),
-            likes: 0,
-            views: 0,
+            likes: randNumber({ min: 10, max: 100 }),
+            views: randNumber({ min: 100, max: 1000 }),
+            tag: randomTags
         }).execute()
     }
 }
