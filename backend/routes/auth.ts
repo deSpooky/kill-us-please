@@ -7,30 +7,6 @@ interface SessionData {
     userId?: number
 }
 
-router.put('/register', async (req: Request, res: Response): Promise<void> => {
-    try {
-        const { id, ...rest } = req.body
-
-        if (!id) {
-            res.status(400).json({ error: 'не передан user.id' })
-            return
-        }
-
-        const creator = await db
-            .updateTable('creators')
-            .set({
-                ...rest
-            })
-            .where('id', '=', id)
-            .executeTakeFirst()
-
-        res.status(201).json({ message: 'профиль обновлен', creator })
-    } catch (err) {
-        console.error(err)
-        res.status(500).json({ error: 'ошибка сервера' })
-    }
-})
-
 router.post('/register', async (req: Request, res: Response): Promise<void> => {
     try {
         const { email, password } = req.body
