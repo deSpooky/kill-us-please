@@ -11,7 +11,7 @@ const upload = multer({
 
 router.get('/', async (req: Request, res: Response) => {
   try {
-    const { creator_id, sort, order } = req.query
+    const { creator_id, tag, sort, order } = req.query
 
     let query = db
       .selectFrom('cases')
@@ -24,6 +24,7 @@ router.get('/', async (req: Request, res: Response) => {
         'cases.likes',
         'cases.views',
         'cases.created_at',
+        'cases.tag',
         'creators.id as creator_id',
         'creators.first_name',
         'creators.last_name',
@@ -34,6 +35,10 @@ router.get('/', async (req: Request, res: Response) => {
 
     if (creator_id) {
       query = query.where('cases.creator_id', '=', Number(creator_id))
+    }
+
+    if (tag) {
+      query = query.where('cases.tag', '=', String(tag))
     }
 
     const allowedSortFields = ['likes', 'views', 'created_at']
@@ -54,6 +59,7 @@ router.get('/', async (req: Request, res: Response) => {
         likes: row.likes,
         views: row.views,
         created_at: row.created_at,
+        tag: row.tag,
         creator: {
           id: row.creator_id,
           first_name: row.first_name,
@@ -88,6 +94,7 @@ router.get('/:caseId', async (req: Request, res: Response) => {
         'cases.likes',
         'cases.views',
         'cases.created_at',
+        'cases.tag',
         'creators.id as creator_id',
         'creators.first_name',
         'creators.last_name',
@@ -106,6 +113,7 @@ router.get('/:caseId', async (req: Request, res: Response) => {
       likes: row.likes,
       views: row.views,
       created_at: row.created_at,
+      tag: row.tag,
       creator: {
         id: row.creator_id,
         first_name: row.first_name,
@@ -128,7 +136,7 @@ router.post(
     req: Request & { file?: Express.Multer.File },
     res: Response
   ): Promise<void> => {
-    const { title, case_description, creator_id, likes, views, tag} = req.body
+    const { title, case_description, creator_id, likes, views, tag } = req.body
     const file = req.file
 
     if (!title) {
