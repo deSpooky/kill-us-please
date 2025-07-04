@@ -1,7 +1,7 @@
 import React from "react";
 import CaseCard from "../case-card";
 import type { CaseRecord } from "../../types";
-import CategorySlider from "../category-slider/CategorySlider"; // путь проверь сам
+import CategorySlider from "../category-slider/CategorySlider"; 
 import classes from "./styles.module.css";
 
 type CasesGridProps = {
