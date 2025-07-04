@@ -13,6 +13,7 @@ export const casesApi = {
             }
         })
         const caseRecords: types.CaseRecord[] = await response.json()
+        // console.log(caseRecords)
         return caseRecords.sort(sortBy("-createdAt", "title"))
     },
 
