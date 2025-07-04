@@ -1,0 +1,50 @@
+.slider-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 10px;
+}
+
+.category-list {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  scroll-behavior: smooth;
+  padding-right: 30px;
+}
+
+.category-list::-webkit-scrollbar {
+  display: none;
+}
+
+.category-button {
+  flex-shrink: 0;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 12px;
+  background-color: #e0e0e0;
+  color: #555;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.category-button.active {
+  background-color: #a0a0a0;
+  color: white;
+}
+
+.scroll-button {
+  position: absolute;
+  right: 5px;
+  background: white;
+  border: none;
+  font-size: 18px;
+  color: #8000ff;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
+}

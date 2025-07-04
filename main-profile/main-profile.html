@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Профиль пользователя</title>
+  <link rel="stylesheet" href="./main-profile.css">
+
+</head>
+<body>
+    <!-- Заглушка -->
+  <div class="header-placeholder"></div>
+
+  <main>
+    <div class="page-header">
+      <a href="#" class="back">&lt; Назад</a>
+      <h1>Профиль</h1>
+      <p class="subtitle">
+        Здесь настраивается учетная запись. Профиль для рабочего пространства меняется в разделе “Пользователи”
+      </p>
+    </div>
+
+    <div class="profile-content">
+      <div class="avatar-col">
+        <img src="https://via.placeholder.com/150" alt="Аватар профиля" class="avatar">
+      </div>
+      <div class="fields-col">
+        <div class="fields-row">
+          <div class="field">
+            <label for="first-name">Имя</label>
+            <input type="text" id="first-name" placeholder="Артем">
+          </div>
+          <div class="field">
+            <label for="last-name">Фамилия</label>
+            <input type="text" id="last-name"  placeholder="Попов">
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="maks.anufriev.88@">
+          </div>
+        </div>
+
+        <div class="fields-row">
+          <div class="field" style="flex: 1;">
+            <label for="bio">Обо мне</label>
+            <textarea id="bio" placeholder="Введите описание"></textarea>
+          </div>
+        </div>
+        <div class="fields-row">
+          <div class="field">
+            <label for="main-specialty">Основная специальность</label>
+            <select id="main-specialty">
+              <option disabled selected>Выберите</option>
+              <option>Кибербезопасность</option>
+              <option>Дизайн</option>
+              <option>Разработка</option>
+              <option>Программирование</option>
+              <option>Разработка игр</option>
+              <option>Маркетинг и коммерция</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="extra-specialty">Дополнительная специальность</label>
+            <select id="extra-specialty">
+              <option disabled selected>Выберите</option>
+              <option>Специалист по кибербезопасности</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="experience">Опыт работы</label>
+            <select id="experience">
+              <option disabled selected>Выберите</option>
+              <option>1 год</option>
+              <option>2 года</option>
+              <option>3 года</option>
+              <option>4 года</option>
+              <option>5 лет</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="save-container">
+          <button class="save-button">Сохранить</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>
