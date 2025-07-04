@@ -13,7 +13,7 @@ const links = [
     },
     {
         title: 'Авторы',
-        to: '/',
+        to: '/creators',
         enabled: true
     },
     {

@@ -5,16 +5,23 @@ import sortBy from "sort-by";
 import * as types from '../types'
 
 
+
 export const casesApi = {
-    async getAll(): Promise<types.CaseRecord[]> {
+    async getAll(filters?: types.Filter): Promise<types.CaseRecord[]> {
+        let baseUrl = new URL('http://localhost:3000/cases')
+        if (filters?.byCreator) {
+            baseUrl.searchParams.set('creator_id', String(filters.byCreator))
+        }
+        if (filters?.byTag) {
+            baseUrl.searchParams.set('tag', String(filters.byTag))
+        }
         const response = await fetch('http://localhost:3000/cases', {
             headers: {
                 "Content-Type": "application/json"
             }
         })
         const caseRecords: types.CaseRecord[] = await response.json()
-        // console.log(caseRecords)
-        return caseRecords.sort(sortBy("-createdAt", "title"))
+        return caseRecords?.sort(sortBy("-createdAt", "title")) ?? []
     },
 
     async get(id: number): Promise<types.CaseRecord> {
@@ -46,11 +53,6 @@ export const casesApi = {
     //     fakeContacts.records[id] = updatedContact;
     //     return updatedContact;
     // },
-
-    // destroy(id: string): null {
-    //     delete fakeContacts.records[id];
-    //     return null;
-    // },
 };
 
 
@@ -64,16 +66,3 @@ export async function getContacts(query?: string | null) {
     }
     return contacts.sort(sortBy("last", "createdAt"));
 }
-
-// export async function updateContact(id: number, updates: CaseMutation) {
-//     const contact = await casesApi.get(id);
-//     if (!contact) {
-//         throw new Error(`No contact found for ${id}`);
-//     }
-//     await casesApi.set(id, { ...contact, ...updates });
-//     return contact;
-// }
-
-// export async function deleteContact(id: string) {
-//     casesApi.destroy(id);
-// }

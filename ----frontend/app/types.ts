@@ -20,12 +20,15 @@ export type CreatorRecord = {
     last_name: string;
     email: string;
     creator_description: string;
+    avatar?: string;
 }
 
 export type LoginCredentials = {
     email: string;
     password: string;
 }
+
+export type Tag = 'Motion' | 'Graphic' | 'Web'
 
 export type LoginCredentialsErrors = Partial<LoginCredentials>
 
@@ -34,3 +37,8 @@ export type SignUpCredentials = LoginCredentials & {
 }
 
 export type SignUpCredentialsErrors = Partial<SignUpCredentials>
+
+export type Filter = Partial<{
+    byCreator: CreatorRecord["id"],
+    byTag: Tag
+}> | undefined;

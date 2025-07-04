@@ -2,7 +2,8 @@ import express from 'express'
 import session from 'express-session'
 import cors from 'cors'
 import authRouter from './routes/auth'
-import authCases from './routes/cases'
+import casesRouter from './routes/cases'
+import creatorsRouter from './routes/creators'
 
 const app = express()
 
@@ -21,7 +22,8 @@ app.use(session({
 }))
 
 app.use('/auth', authRouter)
-app.use('/cases', authCases)
+app.use('/cases', casesRouter)
+app.use('/creators', creatorsRouter)
 
 app.listen(3000, () => {
     console.log('Server started on http://localhost:3000')

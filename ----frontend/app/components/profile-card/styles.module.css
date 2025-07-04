@@ -1,0 +1,40 @@
+.wrapper {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+}
+
+.avatar {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+.creator_name {
+    font-size: 20px;
+}
+
+.section {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.section__heading {
+    margin: 0 0 5px 0;
+    color: gray;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.resume_button {
+    background: black;
+    color: white;
+    padding: 10px 20px;
+    font-size: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-right: 210px;
+}
