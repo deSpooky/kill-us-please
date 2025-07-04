@@ -1,4 +1,5 @@
 import { db } from './database'
+import { sql } from 'kysely'
 
 async function migrate() {
   await db.schema
@@ -23,7 +24,7 @@ async function migrate() {
     .addColumn('creator_id', 'integer', (col) => col.references('creators.id').onDelete('set null'))
     .addColumn('likes', 'integer')
     .addColumn('views', 'integer')
-    .addColumn('created_at', 'text', (col) => col.notNull().defaultTo('CURRENT_TIMESTAMP'))
+    .addColumn('created_at', 'text', (col) => col.notNull().defaultTo(sql`CURRENT_TIMESTAMP`))
     .execute()
 
   console.log('база данных успешно создана! :D')

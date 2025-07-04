@@ -9,9 +9,11 @@ const upload = multer({
   dest: path.join(__dirname, '../uploads'),
 })
 
-router.get('/', async (_: Request, res: Response) => {
+router.get('/', async (req: Request, res: Response) => {
   try {
-    const cases = await db
+    const { creator_id, sort, order } = req.query
+
+    let query = db
       .selectFrom('cases')
       .innerJoin('creators', 'creators.id', 'cases.creator_id')
       .select([
@@ -29,7 +31,19 @@ router.get('/', async (_: Request, res: Response) => {
         'creators.creator_description',
         'creators.avatar',
       ])
-      .execute()
+
+    if (creator_id) {
+      query = query.where('cases.creator_id', '=', Number(creator_id))
+    }
+
+    const allowedSortFields = ['likes', 'views', 'created_at']
+    const sortField =
+      typeof sort === 'string' && allowedSortFields.includes(sort) ? sort : 'created_at'
+    const sortDirection = order === 'desc' ? 'desc' : 'asc'
+
+    query = query.orderBy(`cases.${sortField}` as any, sortDirection)
+
+    const cases = await query.execute()
 
     res.status(200).json(
       cases.map((row) => ({
