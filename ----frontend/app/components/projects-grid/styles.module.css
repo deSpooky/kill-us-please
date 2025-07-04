@@ -1,0 +1,39 @@
+.projects {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    flex: 1;
+    max-height: calc(100vh - 80px - 80px);
+    overflow-y: auto;
+}
+
+.project_card {
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.project_image {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.project_title {
+    margin: 10px 0 8px;
+    font-size: 16px;
+}
+
+.project_stats {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 14px;
+}
+
+.icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}

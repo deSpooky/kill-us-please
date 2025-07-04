@@ -2,7 +2,7 @@
     "name": "backend",
     "version": "1.0.0",
     "scripts": {
-        "dev": "nodemon --watch './**/*.ts' --exec ts-node app.ts"
+        "dev": "tsx --watch app.ts"
     },
     "keywords": [],
     "author": "",
@@ -15,7 +15,6 @@
         "cors": "^2.8.5",
         "express": "^5.1.0",
         "express-session": "^1.18.1",
-        "install": "^0.13.0",
         "kysely": "^0.28.2",
         "multer": "^2.0.1",
         "sqlite3": "^5.1.7"
@@ -30,6 +29,7 @@
         "@types/node": "^24.0.8",
         "nodemon": "^3.1.10",
         "ts-node": "^10.9.2",
+        "tsx": "^4.20.3",
         "typescript": "^5.8.3"
     }
 }
