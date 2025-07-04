@@ -14,7 +14,7 @@ export function AuthWrapper({ children }: PropsWithChildren) {
     )
 }
 
-export function LoginForm() {
+export function LoginForm({ error }: { error?: string }) {
     const fetcher = useFetcher({ key: "login" });
     const errors = fetcher.data?.errors;
 
@@ -24,6 +24,7 @@ export function LoginForm() {
                 <Link to="/login" className={clsx(classes.link, classes.active)}>Войти</Link>
                 <Link to="/signup" className={clsx(classes.link)}>Зарегистрироваться</Link>
             </section>
+            {error ? <div className="error">{error}</div> : null}
             <fetcher.Form method="post" className={classes.form}>
                 <section className={classes.input_group}>
                     <input type="email" id="email" name="email" placeholder="Ваш E-mail" required className={classes.input} />
@@ -51,7 +52,7 @@ export function LoginForm() {
     );
 }
 
-export function SignupForm() {
+export function SignupForm({ error }: { error?: string }) {
     const fetcher = useFetcher({ key: "signup" });
     const errors = fetcher.data?.errors;
 
@@ -61,6 +62,7 @@ export function SignupForm() {
                 <Link to="/login" className={clsx(classes.link)}>Войти</Link>
                 <Link to="/signup" className={clsx(classes.link, classes.active)}>Зарегистрироваться</Link>
             </section>
+            {error ? <div className="error">{error}</div> : null}
             <fetcher.Form method="post" className={classes.form}>
                 <section className={classes.input_group}>
                     <input type="email" id="email" name="email" placeholder="Ваш E-mail" required className={classes.input} />
