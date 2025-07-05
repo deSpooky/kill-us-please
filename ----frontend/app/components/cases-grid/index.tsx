@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import CaseCard from "../case-card";
 import type { CaseRecord } from "../../types";
 import CategorySlider from "../category-slider/CategorySlider";
