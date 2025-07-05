@@ -15,7 +15,7 @@ export const casesApi = {
         if (filters?.byTag) {
             baseUrl.searchParams.set('tag', String(filters.byTag))
         }
-        const response = await fetch('http://localhost:3000/cases', {
+        const response = await fetch(baseUrl, {
             headers: {
                 "Content-Type": "application/json"
             }

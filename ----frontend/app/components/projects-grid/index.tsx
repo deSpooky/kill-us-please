@@ -7,9 +7,9 @@ import dummyProject from '../../assets/dummy-project.png'
 export default function ProjectsGrid({ projects }: { projects: CaseRecord[] }) {
     return (
         <main className={classes.projects}>
-            {projects.map(({ id, title, likes, views }) => (
+            {projects.map(({ id, title, likes, views, source_file_url }) => (
                 <Link key={`project_${id}`} to={`/cases/${id}`} className={classes.project_card}>
-                    <img src={dummyProject} alt="project preview" className={classes.project_image} />
+                    <img src={source_file_url || dummyProject} alt="project preview" className={classes.project_image} />
                     <h3 className={classes.project_title}>{title}</h3>
                     <div className={classes.project_stats}>
                         <span className={clsx(classes.icon, "like")}></span><span>{likes}</span>

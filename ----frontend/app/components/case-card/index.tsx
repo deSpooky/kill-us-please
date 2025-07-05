@@ -3,18 +3,23 @@ import clsx from 'clsx'
 import type { CaseRecord } from "app/types"
 import classes from './styles.module.css'
 
-export default function CaseCard(recordData: CaseRecord) {
-    const { id, title, likes, views, creator } = recordData
-    const { id: creator_id, first_name, last_name, creator_description } = creator || { first_name: 'Анна', last_name: 'Ивановна', creator_description: 'Описание создателя', id: null }
+export default function CaseCard(recordData: CaseRecord & { ix?: number }) {
+    const { id, title, likes, views, creator, source_file_url, ix } = recordData
+
+    const { id: creator_id, first_name, last_name, creator_description, avatar } = creator || { first_name: 'Анна', last_name: 'Ивановна', creator_description: 'Описание создателя', id: null }
     return (
-        <div className={classes.card}>
+        <div className={classes.card} id={`card_${ix}`}>
             <Link to={`/cases/${id}`}>
-                <div className={classes.preview}></div>
+                <div className={classes.preview}>
+                    <img src={source_file_url} alt="case preview" className={classes.preview_image} />
+                </div>
             </Link>
             <div className={classes["card-content"]}>
                 <Link to={`/creators/${creator_id}`}>
                     <div className={classes.author}>
-                        <div className={classes.avatar}></div>
+                        <div className={classes.avatar}>
+                            <img src={avatar} alt="avatar" className={classes.avatar_image}/>
+                        </div>
                         <div className={classes.info}>
                             <div className={classes.info__name}>{first_name} {last_name}</div>
                             <div className={classes.info__role}>{creator_description}</div>

@@ -36,8 +36,8 @@ export default function CasesGrid({ cases }: CasesGridProps) {
         onSelect={setSelectedCategory}
       />
       <main className={classes.grid}>
-        {filteredCases.map((caseRecord) => (
-          <CaseCard key={caseRecord.id} {...caseRecord} />
+        {filteredCases.map((caseRecord, ix) => (
+          <CaseCard key={caseRecord.id} {...caseRecord} ix={ix} />
         ))}
       </main>
     </div>

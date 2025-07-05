@@ -13,6 +13,7 @@ export type CaseRecord = CaseMutation & {
     views: number;
     creator: CreatorRecord | null;
     tag: string;
+    source_file_url: string;
 };
 
 export type CreatorRecord = {
