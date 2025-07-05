@@ -2,7 +2,7 @@
     "name": "backend",
     "version": "1.0.0",
     "scripts": {
-        "dev": "tsx --watch app.ts"
+        "dev": "nodemon --watch './**/*.ts' --exec ts-node app.ts"
     },
     "keywords": [],
     "author": "",

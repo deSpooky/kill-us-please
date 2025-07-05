@@ -27,7 +27,7 @@ router.get('/', async (req: Request, res: Response) => {
         const creators = await query.execute()
 
         res.status(200).json(
-            creators.map(({ id, first_name, last_name, email, creator_description, avatar, tag }) => ({
+            creators.map(({ id, first_name, last_name, email, creator_description, avatar }) => ({
                 id,
                 first_name,
                 last_name,

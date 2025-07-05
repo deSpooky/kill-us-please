@@ -4,6 +4,7 @@ import cors from 'cors'
 import authRouter from './routes/auth'
 import casesRouter from './routes/cases'
 import creatorsRouter from './routes/creators'
+import path from 'path'
 
 const app = express()
 
@@ -24,6 +25,7 @@ app.use(session({
 app.use('/auth', authRouter)
 app.use('/cases', casesRouter)
 app.use('/creators', creatorsRouter)
+app.use('/images', express.static(path.join(__dirname, 'db/images')))
 
 app.listen(3000, () => {
     console.log('Server started on http://localhost:3000')
