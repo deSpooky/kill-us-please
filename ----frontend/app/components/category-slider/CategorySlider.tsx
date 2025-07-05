@@ -1,26 +1,17 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import "./CategorySlider.css";
 
-const categories: string[] = [
-  "Для вас",
-  "Подписки",
-  "Иллюстрации",
-  "Движение",
-  "Архитектура",
-  "UX/UI",
-  "Брендинг",
-  "Графический дизайн",
-  "Фотография",
-];
+type Props = {
+  categories: string[];
+  selected: string;
+  onSelect: (category: string) => void;
+};
 
-const CategorySlider: React.FC = () => {
-  const scrollRef = useRef<HTMLDivElement | null>(null);
-  const [active, setActive] = useState<string>("Для вас");
+const CategorySlider: React.FC<Props> = ({ categories, selected, onSelect }) => {
+  const scrollRef = React.useRef<HTMLDivElement | null>(null);
 
   const scrollRight = () => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: 200, behavior: "smooth" });
-    }
+    scrollRef.current?.scrollBy({ left: 200, behavior: "smooth" });
   };
 
   return (
@@ -29,16 +20,14 @@ const CategorySlider: React.FC = () => {
         {categories.map((cat) => (
           <button
             key={cat}
-            className={`category-button ${active === cat ? "active" : ""}`}
-            onClick={() => setActive(cat)}
+            className={`category-button ${selected === cat ? "active" : ""}`}
+            onClick={() => onSelect(cat)}
           >
             {cat}
           </button>
         ))}
       </div>
-      <button className="scroll-button" onClick={scrollRight}>
-        ❯
-      </button>
+      <button className="scroll-button" onClick={scrollRight}>❯</button>
     </div>
   );
 };
