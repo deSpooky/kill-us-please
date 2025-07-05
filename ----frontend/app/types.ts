@@ -12,6 +12,7 @@ export type CaseRecord = CaseMutation & {
     likes: number;
     views: number;
     creator: CreatorRecord | null;
+    tag: string;
 };
 
 export type CreatorRecord = {
