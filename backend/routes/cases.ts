@@ -2,12 +2,23 @@ import express, { type Request, type Response } from 'express'
 import multer from 'multer'
 import path from 'path'
 import { db } from '../db/database'
+import { randomUUID } from 'crypto'
 
 const router = express.Router()
 
-const upload = multer({
-  dest: path.join(__dirname, '../uploads'),
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, path.join(__dirname, '../uploads'))
+  },
+  filename: (req, file, cb) => {
+    const ext = path.extname(file.originalname)
+    const base = path.basename(file.originalname, ext)
+    const unique = Date.now() + '-' + randomUUID()
+    cb(null, `${base}-${unique}${ext}`)
+  },
 })
+
+const upload = multer({ storage })
 
 router.get('/', async (req: Request, res: Response) => {
   try {

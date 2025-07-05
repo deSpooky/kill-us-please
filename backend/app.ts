@@ -26,6 +26,7 @@ app.use('/auth', authRouter)
 app.use('/cases', casesRouter)
 app.use('/creators', creatorsRouter)
 app.use('/images', express.static(path.join(__dirname, 'db/images')))
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')))
 
 app.listen(3000, () => {
     console.log('Server started on http://localhost:3000')
